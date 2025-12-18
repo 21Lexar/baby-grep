@@ -4,7 +4,9 @@
 #pragma once
 
 #include<stdio.h>
+#include<string.h>
+#include<ctype.h>
 
-int* search(char* word_to_find,char* file_name);
+void search(char* word_to_find,char* file_name);
 
 #endif

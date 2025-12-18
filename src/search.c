@@ -1,5 +1,5 @@
 #include<stdio.h>
-include<string.h>
+#include<string.h>
 #include<ctype.h>
 #include "../include/search.h"
 
@@ -9,17 +9,18 @@ void search(char* word_to_find, char* file_name){
 	if(file_ptr == NULL){
 		printf("ERROR: Unable to open file\n");
 	}else{
-		char line;
-		bool status;
-		while(fgets(line, sizeof(line), file) != NULL){
+		char line[1024];
+		int status = 0;
+		while(fgets(line, sizeof(line), file_ptr) != NULL){
 			if(strstr(line, word_to_find) != NULL){
-				prinf("&s",line);
-				status = true;
+				printf("%s",line);
+				status = 1;
 			} 				
 		}
-		if(status == false){
+		if(status == 0){
 			printf("\n%s is not in the %s\n", word_to_find, file_name);
 		}
+		fclose(file_ptr);
 	}
-	fclose(file_ptr);
+
 }
