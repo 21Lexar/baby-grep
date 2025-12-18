@@ -16,7 +16,7 @@ then just follow the steps
 2. Clone this repo
 > https://github.com/21Lexar/baby-grep.git
 3. run the following command
-> ./bin/program "word-you-want-to-search" file_name.txt
+> ./bin/babygrep "word-you-want-to-search" file_name.txt
 
 And there you have it this is it. 
 
