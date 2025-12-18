@@ -12,12 +12,11 @@ So I thought why not write a baby version of my favourite GNU program "grep"
 ## Installation
 I wouldn't suggest installing because the GOAT grep already is installed in your pc but if you wanna really test my program,
 then just follow the steps
-1. Clone this repo
+1. Open Terminal
+2. Clone this repo
 > https://github.com/21Lexar/baby-grep.git
-2. Move to "/bin" folder
-3. open terminal
-4. run the following command
-> ./program "word-you-want-to-search" file_name.txt
+3. run the following command
+> ./bin/program "word-you-want-to-search" file_name.txt
 
 And there you have it this is it. 
 
