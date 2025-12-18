@@ -12,10 +12,12 @@ BUILD_DIR = build
 BIN_DIR = bin
 
 # Source files
-C_SOURCES = $(wildcard $(SRC_DIR)/*.c)
+C_SOURCES = $(wildcard $(SRC_DIR)/*.c) $(wildcard *.c)
 CPP_SOURCES = $(wildcard *.cpp)
-OBJECTS = $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(C_SOURCES)) \
-          $(patsubst %.cpp,$(BUILD_DIR)/%.o,$(CPP_SOURCES))
+C_OBJECTS = $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(wildcard $(SRC_DIR)/*.c)) \
+            $(patsubst %.c,$(BUILD_DIR)/%.o,$(wildcard *.c))
+CPP_OBJECTS = $(patsubst %.cpp,$(BUILD_DIR)/%.o,$(CPP_SOURCES))
+OBJECTS = $(C_OBJECTS) $(CPP_OBJECTS)
 
 # Target executable
 TARGET = $(BIN_DIR)/program
@@ -33,6 +35,10 @@ $(TARGET): $(OBJECTS)
 
 # Compile C source files
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Compile C files from root directory (main.c)
+$(BUILD_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Compile C++ source files (main.cpp)
