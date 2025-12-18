@@ -5,6 +5,7 @@
 I always thought how grep is able to take commands while executing the program.
 While I was researching on it, I found out that the thing I used to feel that used to blank my mind at an instant is actually a revolutionary thing.
 >int argc, char* argv[]
+
 was probably the most interesting thing I have ever learnt in programming. 
 So I thought why not write a baby version of my favourite GNU program "grep"
 
