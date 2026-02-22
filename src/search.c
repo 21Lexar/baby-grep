@@ -3,16 +3,26 @@
 #include<ctype.h>
 #include "../include/search.h"
 
-void search(char* word_to_find, char* file_name){
+void search(
+	char* word_to_find,
+	char* file_name)
+	{
+
 	FILE *file_ptr;
 	file_ptr = fopen(file_name, "r");
+
 	if(file_ptr == NULL){
 		printf("ERROR: Unable to open file\n");
 	}else{
 		char line[1024];
 		int status = 0;
 		int line_number = 1;
-		while(fgets(line, sizeof(line), file_ptr) != NULL){
+
+		while(
+			fgets(line, sizeof(line), 
+			file_ptr) != NULL)
+			{
+
 			if(strstr(line, word_to_find) != NULL){
 				printf("%d %s",line_number, line);
 				status = 1;
